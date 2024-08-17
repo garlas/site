@@ -1,14 +1,30 @@
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 
+// Toggle menu ketika hamburger diklik
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navLinks.classList.toggle("active");
 });
 
+// Tutup menu ketika klik di luar menu
+document.addEventListener("click", (event) => {
+  if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+    // Jika klik terjadi di luar menu dan tombol hamburger
+    hamburger.classList.remove("active");
+    navLinks.classList.remove("active");
+  }
+});
+
+// Mencegah klik di dalam menu menutup menu
+navLinks.addEventListener("click", (event) => {
+  event.stopPropagation();
+});
+
+// Menangani pengiriman form
 document
   .getElementById("aspirasiForm")
-  .addEventListener("submit", function (event) {
+  .addEventListener("submit", function(event) {
     event.preventDefault(); // Mencegah form dari pengiriman secara default
 
     const teksAspirasi = document.querySelector(
