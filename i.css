@@ -60,85 +60,6 @@ body {
   color: #ddd;
 }
 
-/* Styling dasar untuk tabel */
-.tabel-container {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-}
-
-.tabel {
-  width: 100%;
-  max-width: 800px;
-  border-collapse: collapse;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  font-size: 14px;
-  background-color: #fff;
-  margin: 20px 0;
-}
-
-/* Styling untuk header tabel */
-.tabel thead {
-  background-color: #333f4d;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 16px;
-}
-
-.tabel thead td {
-  padding: 10px;
-  text-align: center;
-  font-weight: bold;
-}
-
-/* Styling untuk baris isi tabel */
-.tabel tbody tr {
-  background-color: #f8f9fa;
-  transition: background-color 0.3s ease;
-}
-
-.tabel tbody tr:nth-child(even) {
-  background-color: #e9ecef;
-}
-
-/* Efek hover pada baris tabel */
-.tabel tbody tr:hover {
-  background-color: #d1ecf1;
-}
-
-/* Styling untuk sel tabel */
-.tabel tbody td {
-  padding: 10px;
-  vertical-align: top;
-  border-bottom: 1px solid #dee2e6;
-}
-
-/* Styling untuk header di dalam isi tabel */
-.tabel tbody h3 {
-  margin: 10px 0 5px;
-  color: #3f9cff;
-}
-
-/* Styling untuk paragraf di dalam sel tabel */
-.tabel tbody p {
-  margin: 5px 0;
-  font-size: 14px;
-}
-
-/* Styling untuk border dan radius */
-.tabel td:first-child,
-.tabel td:last-child {
-  border-left: none;
-  border-right: none;
-}
-
-.tabel tr:last-child td {
-  border-bottom: none;
-}
-
 .content-section {
   display: flex;
   flex-direction: column;
@@ -394,52 +315,28 @@ body {
     display: flex;
   }
 
-  #nav-links {
+  .navbar ul {
     display: none;
   }
 
-  #nav-links.active {
+  .navbar ul.active {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 60px;
+    top: 50px;
     right: 20px;
     background-color: #333;
-    width: 200px;
-    border-radius: 8px;
     padding: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
   }
 
-  #nav-links.active li {
-    margin: 10px 0;
-  }
-
-  #nav-links.active li a {
-    color: white;
-    font-size: 18px;
-    display: block;
+  .footer {
+    font-size: 14px;
+    padding: 8px 0;
   }
 }
 
 @media (max-width: 400px) {
-  .navbar {
-    flex-direction: column;
-    padding: 10px;
-    align-items: center;
-  }
-
-  .hero {
-    height: 50vh;
-    padding: 10px;
-    text-align: center;
-  }
-
-  .logo {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
   .hero h2 {
     font-size: 24px;
   }
@@ -448,16 +345,9 @@ body {
     font-size: 14px;
   }
 
-  .btn-primary,
-  .btn-secondary {
-    padding: 8px 15px;
-    font-size: 14px;
-    display: block;
-    margin: 10px auto;
-  }
-
-  .about {
-    padding: 20px 10px;
+  .footer {
+    font-size: 12px;
+    padding: 6px 0;
     text-align: center;
   }
 }
