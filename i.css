@@ -287,6 +287,29 @@ body {
   width: 100%;
 }
 
+@media (max-width: 400px) {
+
+  .hero {
+    height: 50vh;
+    padding: 20px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .footer {
+    font-size: 12px;
+    padding: 6px 0;
+    text-align: center;
+  }
+}
+
+
 /* Media Queries untuk Responsivitas */
 @media (max-width: 768px) {
   .navbar ul {
@@ -336,24 +359,3 @@ body {
   }
 }
 
-@media (max-width: 400px) {
-
-  .hero {
-    height: 50vh;
-    padding: 20px;
-  }
-
-  .hero h2 {
-    font-size: 24px;
-  }
-
-  .hero p {
-    font-size: 14px;
-  }
-
-  .footer {
-    font-size: 12px;
-    padding: 6px 0;
-    text-align: center;
-  }
-}
