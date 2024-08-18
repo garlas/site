@@ -44,6 +44,41 @@ body {
   color: #666;
 }
 
+.aaspirasi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 30vh;
+  background-color: #f7f9fc;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  margin: 60px auto;
+  max-width: 800px;
+}
+
+.aaspirasi h2 {
+  color: #007bff;
+  margin: 5px 0;
+  padding: 3px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.aaspirasi input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 3px 1px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 15px;
+  width: 100%;
+  margin: 10px;
+}
+
 /* Styling dasar untuk div aspirasi */
 .aspirasi {
   display: flex;
@@ -57,6 +92,17 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   margin: 60px auto;
   max-width: 800px;
+}
+
+.aaspirasi input[type="text"] {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  resize: none;
+  font-size: 15px;
+  margin: 5px 0;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Styling untuk heading */
@@ -150,7 +196,7 @@ body {
 }
 
 .hero-content {
-  max-width: 600px;
+  max-width: 800px;
 }
 
 .hero h2 {
@@ -250,7 +296,7 @@ body {
   width: 100%;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 400px) {
   .hero {
     height: 50vh;
     padding: 20px;
