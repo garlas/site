@@ -1,3 +1,4 @@
+// Mengatur tombol hamburger
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 
@@ -6,48 +7,65 @@ hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
-// Tutup menu ketika klik di luar menu
 document.addEventListener("click", (event) => {
   if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-    // Jika klik terjadi di luar menu dan tombol hamburger
     hamburger.classList.remove("active");
     navLinks.classList.remove("active");
   }
 });
 
+// Mengatur form untuk input username
+document
+  .getElementById("usernameForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Mencegah form dari pengiriman secara default
+
+    const username = document.getElementById("username").value.trim();
+
+    if (username === "") {
+      alert("Username harus diisi!");
+      return;
+    }
+
+    // Simpan username ke sessionStorage (atau kamu bisa gunakan localStorage)
+    sessionStorage.setItem("username", username);
+
+    // Sembunyikan form username dan tampilkan form aspirasi
+    document.getElementById("usernameSection").style.display = "none";
+    document.getElementById("aspirasiSection").style.display = "block";
+  });
+
+// Mengatur form aspirasi
 document
   .getElementById("aspirasiForm")
   .addEventListener("submit", function (event) {
     event.preventDefault(); // Mencegah form dari pengiriman secara default
 
+    const username = sessionStorage.getItem("username");
     const teksAspirasi = document
       .querySelector('textarea[name="teksAspirasi"]')
       .value.trim();
 
-    // Cek apakah teks aspirasi kosong
     if (teksAspirasi === "") {
-      alert("Kolom teks aspirasi harus diisi!");
-      return; // Hentikan pengiriman jika kosong
+      alert("Teks aspirasi harus diisi!");
+      return;
     }
 
-    const pengirim = "SOMEONE";
     const hari = new Date();
 
-    // Ganti URL ini dengan URL webhook Discord kamu
     const webhookUrl =
       "https://discord.com/api/webhooks/1116018572666355876/cwt-8scvtSceX4fIyYgxfry0ZtxBJFCCcEcTy-sEAMrvWde2ZK704lNv3CstnZmy0XyW";
 
-    // Data yang akan dikirim ke Discord dengan Embed
     const requestData = {
       embeds: [
         {
           title: "📢 Aspirasi Baru Diterima",
           description: "Berikut adalah detail dari aspirasi yang diterima:",
-          color: 3066993, // Warna hijau
+          color: 3066993,
           fields: [
             {
               name: "👤 Pengirim",
-              value: `**${pengirim}**`,
+              value: `\`\`\`${username}\`\`\``,
               inline: false,
             },
             {
@@ -63,13 +81,11 @@ document
           ],
           footer: {
             text: "Aspirasi ini dikirim melalui form online.",
-            // icon_url: "URL_ICON_IMAGE", // Hapus atau perbarui dengan URL yang valid
           },
         },
       ],
     };
 
-    // Kirim data ke webhook Discord
     fetch(webhookUrl, {
       method: "POST",
       headers: {
@@ -80,7 +96,7 @@ document
       .then((response) => {
         if (response.ok) {
           alert("Aspirasi berhasil dikirim!");
-          document.getElementById("aspirasiForm").reset(); // Mengosongkan form setelah submit
+          document.getElementById("aspirasiForm").reset();
         } else {
           alert("Gagal mengirim aspirasi.");
         }
