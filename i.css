@@ -11,53 +11,12 @@ p {
 
 /* Styling untuk body */
 body {
-  background-color: rgb(190, 190, 190);
+  background-color: rgb(202, 202, 202);
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0;
   justify-content: center;
-}
-
-/* Styling dasar untuk navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
-}
-
-/* Styling untuk logo */
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-/* Mengatur ul dalam navbar */
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-/* Mengatur li dalam ul */
-.navbar ul li {
-  margin: 0 15px;
-}
-
-/* Mengatur link dalam li */
-.navbar ul li a {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-}
-
-/* Styling untuk link saat di-hover */
-.navbar ul li a:hover {
-  color: #ddd;
 }
 
 .content-section {
@@ -144,14 +103,16 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #333;
+  background-color: #007bff;
   color: white;
   position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
+  font-style: italic;
 }
 
 .navbar ul {
@@ -181,7 +142,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 60vh;
-  background: url("hero-bg.jpg") no-repeat center center/cover;
+  background: url("images.jpeg") no-repeat center center/cover;
   color: rgb(169, 70, 70);
   text-align: center;
   padding: 90px;
@@ -269,10 +230,10 @@ body {
 }
 
 .hamburger span {
-  height: 3px;
-  width: 25px;
+  height: 2.5px;
+  width: 20px;
   background: white;
-  margin: 4px 0;
+  margin: 2px 0;
   transition: 0.4s;
   border-radius: 10px;
 }
@@ -282,14 +243,13 @@ body {
   background-color: #333;
   color: white;
   text-align: center;
-  padding: 10px 0;
+  padding: 5px 0;
   position: fixed;
   bottom: 0;
   width: 100%;
 }
 
 @media (max-width: 400px) {
-
   .hero {
     height: 50vh;
     padding: 20px;
@@ -304,12 +264,11 @@ body {
   }
 
   .footer {
-    font-size: 12px;
+    font-size: 2px;
     padding: 6px 0;
     text-align: center;
   }
 }
-
 
 /* Media Queries untuk Responsivitas */
 @media (max-width: 768px) {
@@ -359,4 +318,3 @@ body {
     padding: 8px 0;
   }
 }
-
