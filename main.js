@@ -54,7 +54,7 @@ document
     const hari = new Date();
 
     const webhookUrl =
-      "https://discord.com/api/webhooks/1116018572666355876/cwt-8scvtSceX4fIyYgxfry0ZtxBJFCCcEcTy-sEAMrvWde2ZK704lNv3CstnZmy0XyW";
+      "https://discord.com/api/webhooks/1274643187742281788/949FutOCV7wUpFr5642KasuS6B1D1W2dyKTUWqOzLhF0dYASVQXNK8fqtmVlGorfXeqj";
 
     const requestData = {
       embeds: [
