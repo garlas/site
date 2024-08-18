@@ -142,7 +142,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60vh;
+  height: 70vh;
   background: url("images.jpeg") no-repeat center center/cover;
   color: rgb(169, 70, 70);
   text-align: center;
