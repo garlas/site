@@ -250,7 +250,7 @@ body {
   width: 100%;
 }
 
-@media (max-width: 200px) {
+@media (max-width: 450px) {
   .hero {
     height: 50vh;
     padding: 20px;
