@@ -151,6 +151,8 @@ body {
 
 .hero-content {
   max-width: 600px;
+   height: 70vh;
+  padding: 100px;
 }
 
 .hero h2 {
