@@ -1,7 +1,6 @@
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 
-// Toggle menu ketika hamburger diklik
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navLinks.classList.toggle("active");
@@ -16,21 +15,22 @@ document.addEventListener("click", (event) => {
   }
 });
 
-// Mencegah klik di dalam menu menutup menu
-navLinks.addEventListener("click", (event) => {
-  event.stopPropagation();
-});
-
-// Menangani pengiriman form
 document
   .getElementById("aspirasiForm")
-  .addEventListener("submit", function(event) {
+  .addEventListener("submit", function (event) {
     event.preventDefault(); // Mencegah form dari pengiriman secara default
 
-    const teksAspirasi = document.querySelector(
-      'textarea[name="teksAspirasi"]'
-    ).value;
-    const pengirim = "Tidak Diketahui";
+    const teksAspirasi = document
+      .querySelector('textarea[name="teksAspirasi"]')
+      .value.trim();
+
+    // Cek apakah teks aspirasi kosong
+    if (teksAspirasi === "") {
+      alert("Kolom teks aspirasi harus diisi!");
+      return; // Hentikan pengiriman jika kosong
+    }
+
+    const pengirim = "SOMEONE";
     const hari = new Date();
 
     // Ganti URL ini dengan URL webhook Discord kamu
