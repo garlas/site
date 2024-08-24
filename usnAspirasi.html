@@ -24,21 +24,25 @@
     </div>
     <!-- Navbar end -->
 
-    <!-- Username input section -->
-    <div id="usernameSection" class="aaspirasi">
-      <h2>Masukan Username</h2>
-      <form id="usernameForm">
-        <input
-          type="text"
-          name="username"
-          id="username"
-          placeholder="Username"
-          required
-        />
-        <input type="submit" value="masuk" />
+    <!-- Class and Subclass selection section -->
+    <div id="classSection" class="aaspirasi">
+      <h2>Pilih Kelas Anda</h2>
+      <form id="classForm">
+        <!-- Dropdown untuk memilih tingkat kelas -->
+        <select name="classLevel" id="classLevel" required class="halo">
+          <option value="" disabled selected>Pilih tingkat kelas</option>
+          <option value="X">Kelas 10</option>
+          <option value="XI">Kelas 11</option>
+          <!-- <option value="IX">Kelas 12</option> -->
+        </select>
+
+        <!-- Dropdown untuk memilih subkelas (akan diisi secara dinamis) -->
+        <select name="subclass" id="subclass" required style="display: none">
+          <option value="" disabled selected>Pilih subkelas</option>
+        </select>
       </form>
     </div>
-    <!-- Username input section end -->
+    <!-- Class and Subclass selection section end -->
 
     <!-- Aspirasi Form section (hidden by default) -->
     <div id="aspirasiSection" class="aspirasi" style="display: none">
