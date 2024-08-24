@@ -44,6 +44,33 @@ body {
   color: #666;
 }
 
+/* Style untuk section pemilihan kelas dan subkelas */
+#aaspirasi {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#aaspirasi h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.halo {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Hover effect untuk dropdown */
+.halo:hover {
+  border-color: #4caf50;
+}
+
 .aaspirasi {
   display: flex;
   flex-direction: column;
