@@ -296,20 +296,62 @@ body {
 }
 
 /* Styling untuk hamburger menu */
+/* Style dasar untuk hamburger */
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
   cursor: pointer;
   z-index: 10;
 }
 
 .hamburger span {
-  height: 2.5px;
-  width: 20px;
-  background: white;
-  margin: 2px 0;
-  transition: 0.1s;
-  border-radius: 50px;
+  display: block;
+  height: 3px;
+  background: #fffcfc;
+  border-radius: 1.5px;
+  transition: all 0.3s ease;
+}
+
+/* Animasi ketika menu aktif */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Transisi menu keluar masuk */
+#nav-links {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background: #007bff;
+  width: 100%;
+  max-width: 300px;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+#nav-links.active {
+  height: 220px; /* Sesuaikan dengan tinggi menu */
+  opacity: 1;
+}
+
+#nav-links li {
+  margin: 15px 0;
+  text-align: center;
 }
 
 /* Styling untuk footer */
