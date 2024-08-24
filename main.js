@@ -14,26 +14,78 @@ document.addEventListener("click", (event) => {
   }
 });
 
-// Mengatur form untuk input username
-document
-  .getElementById("usernameForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Mencegah form dari pengiriman secara default
+// Subkelas berdasarkan tingkat kelas
+const subClassOptions = {
+  X: [
+    "X-1",
+    "X-2",
+    "X-3",
+    "X-4",
+    "X-5",
+    "X-6",
+    "X-7",
+    "X-8",
+    "X-9",
+    "X-10",
+    "X-11",
+    "X-12",
+  ],
+  XI: [
+    "XI IPA-1",
+    "XI IPA-2",
+    "XI IPA-3",
+    "XI IPA-4",
+    "XI IPA-5",
+    "XI IPA-6",
+    "XI IPA-7",
+    "XI IPA-8",
+    "XI IPS-9",
+    "XI IPS-10",
+    "XI IPS-11",
+    "XI IPS-12",
+  ],
+  // IX: ["12A", "12B", "12C", "12D", "12E", "12F", "12G", "12H"],
+};
 
-    const username = document.getElementById("username").value.trim();
+// Mengatur form pemilihan kelas
+document.getElementById("classLevel").addEventListener("change", function () {
+  const classLevel = this.value;
+  const subclassDropdown = document.getElementById("subclass");
 
-    if (username === "") {
-      alert("Username harus diisi!");
-      return;
-    }
+  // Kosongkan pilihan subkelas sebelumnya
+  subclassDropdown.innerHTML =
+    '<option value="" disabled selected>Pilih subkelas</option>';
 
-    // Simpan username ke sessionStorage (atau kamu bisa gunakan localStorage)
-    sessionStorage.setItem("username", username);
+  // Tambahkan opsi subkelas sesuai dengan tingkat kelas yang dipilih
+  if (subClassOptions[classLevel]) {
+    subClassOptions[classLevel].forEach((subclass) => {
+      const option = document.createElement("option");
+      option.value = subclass;
+      option.textContent = subclass;
+      subclassDropdown.appendChild(option);
+    });
 
-    // Sembunyikan form username dan tampilkan form aspirasi
-    document.getElementById("usernameSection").style.display = "none";
-    document.getElementById("aspirasiSection").style.display = "block";
-  });
+    // Tampilkan dropdown subkelas
+    subclassDropdown.style.display = "block";
+  }
+});
+
+// Mengatur form pemilihan subkelas
+document.getElementById("subclass").addEventListener("change", function () {
+  const selectedSubclass = this.value;
+
+  if (!selectedSubclass) {
+    alert("Silakan pilih subkelas Anda!");
+    return;
+  }
+
+  // Simpan subkelas ke sessionStorage
+  sessionStorage.setItem("class", selectedSubclass);
+
+  // Sembunyikan form kelas dan tampilkan form aspirasi
+  document.getElementById("classSection").style.display = "none";
+  document.getElementById("aspirasiSection").style.display = "block";
+});
 
 // Mengatur form aspirasi
 document
@@ -41,7 +93,7 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault(); // Mencegah form dari pengiriman secara default
 
-    const username = sessionStorage.getItem("username");
+    const selectedClass = sessionStorage.getItem("class");
     const teksAspirasi = document
       .querySelector('textarea[name="teksAspirasi"]')
       .value.trim();
@@ -65,7 +117,7 @@ document
           fields: [
             {
               name: "👤 Pengirim",
-              value: `\`\`\`${username}\`\`\``,
+              value: `\`\`\`Kelas ${selectedClass}\`\`\``,
               inline: false,
             },
             {
