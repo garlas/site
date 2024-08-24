@@ -14,7 +14,7 @@ document.addEventListener("click", (event) => {
   }
 });
 
-// Subkelas berdasarkan tingkat kelas
+// Subkelas & kelas
 const subClassOptions = {
   X: [
     "X-1",
@@ -44,7 +44,20 @@ const subClassOptions = {
     "XI IPS-11",
     "XI IPS-12",
   ],
-  // IX: ["12A", "12B", "12C", "12D", "12E", "12F", "12G", "12H"],
+  XII: [
+    "XII IPA-1",
+    "XII IPA-2",
+    "XII IPA-3",
+    "XII IPA-4",
+    "XII IPA-5",
+    "XII IPA-6",
+    "XII IPA-7",
+    "XII IPA-8",
+    "XII IPS-9",
+    "XII IPS-10",
+    "XII IPS-11",
+    "XII IPS-12",
+  ],
 };
 
 // Mengatur form pemilihan kelas
@@ -67,6 +80,8 @@ document.getElementById("classLevel").addEventListener("change", function () {
 
     // Tampilkan dropdown subkelas
     subclassDropdown.style.display = "block";
+  } else {
+    subclassDropdown.style.display = "none";
   }
 });
 
@@ -97,11 +112,16 @@ document
     const teksAspirasi = document
       .querySelector('textarea[name="teksAspirasi"]')
       .value.trim();
+    const submitButton = document.querySelector(
+      "#aspirasiForm input[type='submit']"
+    );
 
     if (teksAspirasi === "") {
       alert("Teks aspirasi harus diisi!");
       return;
     }
+
+    submitButton.disabled = true; // Nonaktifkan tombol kirim untuk mencegah pengiriman ganda
 
     const hari = new Date();
 
@@ -156,5 +176,8 @@ document
       .catch((error) => {
         console.error("Terjadi kesalahan:", error);
         alert("Gagal mengirim aspirasi.");
+      })
+      .finally(() => {
+        submitButton.disabled = false; // Aktifkan kembali tombol setelah pengiriman selesai
       });
   });
